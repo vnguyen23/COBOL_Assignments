@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Assignment5/Assignment51.cbl&apos; to &apos;Assignment5_Update.cbl&apos;" description="Rename resource &apos;Assignment51.cbl&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Assignment51.cbl" name="Assignment5_Update.cbl" stamp="1592420467493" updateReferences="true"/>
+</session>

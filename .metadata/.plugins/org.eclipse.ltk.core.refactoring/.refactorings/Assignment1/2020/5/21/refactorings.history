@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;COBOL1.cbl&apos; to &apos;Assignment1&apos;" description="Move &apos;COBOL1.cbl&apos; to &apos;Assignment1&apos;" destination="/Assignment1" element1="/Module2/COBOL1.cbl" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1589684636177" updateReferences="true"/>
+</session>

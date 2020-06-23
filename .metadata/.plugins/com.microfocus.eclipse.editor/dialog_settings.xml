@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="true" key="com.microfocus.eclipse.editor.formatting.preferences.open_identification_section"/>
+	<item value="true" key="com.microfocus.eclipse.editor.formatting.preferences.open_general_section"/>
+	<item value="true" key="com.microfocus.eclipse.editor.formatting.preferences.open_procedure_section"/>
+	<item value="true" key="com.microfocus.eclipse.editor.formatting.preferences.open_data_section"/>
+	<section name="com.microfocus.eclipse.editor.findreplace.FindReplaceDialog">
+		<item value="1" key="startcolumn"/>
+		<item value="false" key="isRegEx"/>
+		<item value="STORE #" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<item value="255" key="endcolumn"/>
+		<list key="findhistory">
+			<item value="STORE #"/>
+			<item value="SalaryExpenses"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="com.microfocus.eclipse.editor.findreplace.FindReplaceDialog_dialogBounds">
+		<item value="332" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="546" key="DIALOG_HEIGHT"/>
+		<item value="1251" key="DIALOG_X_ORIGIN"/>
+		<item value="154" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

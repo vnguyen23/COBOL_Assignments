@@ -1,0 +1,28 @@
+       program-id. Conundrum2 as "Conundrum2".
+
+       environment division.
+       configuration section.
+
+       data division.
+       working-storage section.
+       01 TEST-VARIABLES.
+          03 A    PIC X(4) VALUE "FOUR".
+          03 B    PIC X(4) VALUE "FIVE".
+          03 C    PIC X(4) VALUE "FIVE".
+       procedure division.
+
+           if (9 and 2)
+               display "true"
+           else
+               display "false"
+           end-if
+           if "" and "Hello"
+               display "true"
+           else
+               display "false"
+           end-if
+           stop run.
+
+
+               
+       end program Conundrum2.

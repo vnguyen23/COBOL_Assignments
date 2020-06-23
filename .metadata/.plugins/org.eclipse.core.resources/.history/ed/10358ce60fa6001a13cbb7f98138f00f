@@ -1,0 +1,48 @@
+       program-id. Conundrum4 as "Conundrum4".
+
+       environment division.
+       configuration section.
+
+       data division.
+       working-storage section.
+       
+       01 TEST-VARIABLES.
+           03 A    PIC X(9).
+           03 B    PIC 9(5)V99.
+           03 C    PIC 9(1) COMP.
+           03 D    PIC 9(7) VALUE 2000.
+           03 E    PIC 9(4).
+           03 F    PIC X(2).
+
+       procedure division.
+       
+       MOVE '0000000000000000B0000000000000' TO TEST-VARIABLES
+      *compute v = function numval(T)
+      *DISPLAY "V=" V
+       display "TEST VARIABLES=" 
+       display "A=" A
+       display "B=" B
+       display "C=" C
+       display "D=" D
+       display "E=" E
+       display "F=" F
+       DISPLAY "------------------------------"
+       MOVE 1500001   TO A B
+       display "A=" A
+       display "B=" B
+       ADD B          TO D
+       ADD 1000 D .99 TO C
+       MOVE C         TO E
+       ADD 10000      TO E
+       MOVE D         TO F
+       
+      
+       
+       display "C=" C
+       display "D=" D
+       display "E=" E
+       display "F=" F
+
+           goback.
+
+       end program Conundrum4.
