@@ -82,6 +82,8 @@
 		<file name="Exercise1.cbl"/>
 		<file name="Exercise2.cbl"/>
 		<file name="Exercise3.cbl"/>
+		<file name="Exercise31.cbl"/>
+		<file name="Table_Exercise1.cbl"/>
 	</mffilelist>
 	<!-- COBOL copybook locations -->
 	<mffilelist id="cobol.copybook.locations">
@@ -107,6 +109,8 @@
 		<file name="Exercise1${mf.objext}"/>
 		<file name="Exercise2${mf.objext}"/>
 		<file name="Exercise3${mf.objext}"/>
+		<file name="Exercise31${mf.objext}"/>
+		<file name="Table_Exercise1${mf.objext}"/>
 	</mffilelist>
 	<!--  *************************  -->
 	<!--  * Configuration targets *  -->
@@ -166,6 +170,10 @@
 			<cobollink debug="true" destfile="Exercise2" objectfile="Exercise2${mf.objext}" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" objectdir="${basedir}/New_Configuration.bin" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">
 			</cobollink>
 			<cobollink debug="true" destfile="Exercise3" objectfile="Exercise3${mf.objext}" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" objectdir="${basedir}/New_Configuration.bin" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">
+			</cobollink>
+			<cobollink debug="true" destfile="Exercise31" objectfile="Exercise31${mf.objext}" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" objectdir="${basedir}/New_Configuration.bin" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">
+			</cobollink>
+			<cobollink debug="true" destfile="Table_Exercise1" objectfile="Table_Exercise1${mf.objext}" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" objectdir="${basedir}/New_Configuration.bin" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">
 			</cobollink>
 		</parallel>
 	</target>

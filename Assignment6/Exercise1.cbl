@@ -1,5 +1,3 @@
-      *Initialize values
-      *Variables level other than 1 are in B area
        IDENTIFICATION DIVISION.
        PROGRAM-ID. Exercise1 as "Exercise1".
 
@@ -32,7 +30,7 @@
            03    LastName               PIC X(14).
            03    FirstName              PIC X(14).
            03    StartDate              PIC X(8).
-           03    StoreNumber            PIC X(4).
+           03    StoreNumber            PIC 9(4).
            03    WklySalary             PIC 9(4)V99.
            03    SaleAmount             PIC 9(6)V99.
       ********End of EmployeeSalary record**************************
@@ -58,7 +56,7 @@
        01 FileHeadingSalespersonRecognition. 
            03 FILLER                    PIC X(42) VALUE 
          "Employee recognition for the week ending: ".
-           03 CurrDate                  PIC X(10).
+           03 CurrDate1                  PIC X(10).
        
        01  DataHeading-01.
            03  FILLER                    PIC X(52) VALUE ALL "-". 
@@ -76,7 +74,7 @@
        01  FileHeadingSalaryExpense.
            03 FILLER                     PIC X(36) VALUE 
          "Salary expense for the week ending: ".
-           03 CurrDate                   PIC 9(10).
+           03 CurrDate2                   PIC X(10).
       *****End variables for header of file “SalaryExpense.rpt”******
       
       ******Total salary variables************************************
@@ -126,7 +124,7 @@
       *“SalespersonRecognition.rpt” and “SalaryExpense.rpt”
       *-------------------------------------------------------------
        write-header.
-           perform initiate-header
+           perform get-current-date
            *>write header of file “SalespersonRecognition.rpt”
            write HighPerforming from FileHeadingSalespersonRecognition  
            write HighPerforming from DataHeading-01 after advancing 1 
@@ -168,20 +166,18 @@
            exit.
            
       *-------------------------------------------------------------    
-      *initiate-header paragraph:
+      *get-current-date paragraph:
       *- gets current date from system
       *- generate date string with "-" separation
       *-------------------------------------------------------------
-       initiate-header.
+       get-current-date.
            accept CurrentDate from DATE YYYYMMDD
            
            String CurrentYear, "-", CurrentMonth, "-", CurrentDay
-           DELIMITED BY SIZE INTO CurrDate of 
-           FileHeadingSalespersonRecognition
+           DELIMITED BY SIZE INTO CurrDate1
            
            String CurrentYear, "-", CurrentMonth, "-", CurrentDay
-           DELIMITED BY SIZE INTO CurrDate of 
-           FileHeadingSalaryExpense
+           DELIMITED BY SIZE INTO CurrDate2
            exit.
            
       *-------------------------------------------------------------

@@ -67,6 +67,8 @@
          <file compile="true" path="Exercise1.cbl" xsi:type="cobolFile"/>
          <file compile="true" path="Exercise2.cbl" xsi:type="cobolFile"/>
          <file compile="true" path="Exercise3.cbl" xsi:type="cobolFile"/>
+         <file compile="true" path="Exercise31.cbl" xsi:type="cobolFile"/>
+         <file compile="true" path="Table_Exercise1.cbl" xsi:type="cobolFile"/>
       </filetype>
       <filetype type="cobol.copybook" xsi:type="cobolFileContainer"/>
       <folders xsi:type="cobolFolderContainer">
