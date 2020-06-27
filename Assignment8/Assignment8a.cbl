@@ -51,19 +51,20 @@
        01  WS-DETAIL.
       *    d) Add spacing on the detail line to move the name file 
       *       by 20 characters
+           03  FILLER            PIC X(20).  
            03  WS-PRINT-NAME     PIC X(40).
-           03  WS-PRINT-SALES    PIC ZZZ,ZZ9.99.
+           03  WS-PRINT-SALES    PIC $,$$$,$$9.99.
        01  WS-SPACES             PIC X(132) VALUE SPACES.
        01  WS-REGION-END-LINE.
            03                    PIC X(20) VALUE SPACES.
            03                    PIC X(27) VALUE
                            "TOTALS FOR THIS REGION ARE ".
            03  WS-PRINT-REGION-TOTAL
-                                 PIC ZZ,ZZZ,ZZ9.99.
+                                 PIC $$,$$$,$$9.99.
        01  WS-FINAL-LINE.
            03                    PIC X(20) VALUE SPACES.
            03                    PIC X(20) VALUE "GRAND TOTAL ".
-           03  WS-PRINT-GRAND-TOTAL PIC Z,ZZZ,ZZZ,ZZ9.99.
+           03  WS-PRINT-GRAND-TOTAL PIC $,$$$,$$$,$$9.99.
        PROCEDURE DIVISION.
        PROG.
            PERFORM INIT-PARA 
@@ -71,7 +72,7 @@
            PERFORM END-PARA
            .
        INIT-PARA.
-           DISPLAY "PRINT PROGRAM STARTING" 
+           DISPLAY "PRINT PROGRAM STARTING"
            OPEN INPUT  INFILE
                 OUTPUT PRINTFILE 
            ACCEPT WS-DATE FROM DATE YYYYMMDD
@@ -79,6 +80,8 @@
            DISPLAY "Date is " WS-EDITED-DATE 
       *    a) Ensure the date appears on the report by moving the 
       *       accepted current date to the heading line
+           MOVE WS-EDITED-DATE TO WS-PRINT-DATE
+           
            READ INFILE
                AT END MOVE "YES" TO WS-EOF
            END-READ
@@ -101,9 +104,10 @@
        PROCESS-REC.
            IF WS-LINE-CNT > 45
                 PERFORM WRITE-HEADINGS 
-           END-IF     
+           END-IF
+       
            IF IN-REGION UNEQUAL WS-RG
-             AND WS-REGN UNEQUAL LOW-VALUES
+               AND WS-REGN UNEQUAL LOW-VALUES
                PERFORM END-OF-REGION
            END-IF
            IF IN-REGION UNEQUAL WS-RG
@@ -117,11 +121,12 @@
            .
        WRITE-HEADINGS.
            WRITE PRINTREC FROM WS-SPACES AFTER PAGE
+      *    WRITE PRINTREC FROM WS-SPACES
            ADD 1 TO WS-PAGE-CNT
            MOVE WS-PAGE-CNT TO WS-PRINT-PAGE-CNT
-      *vAN'S CODE    
-           MOVE WS-EDITED-DATE TO WS-PRINT-DATE
+           
            WRITE PRINTREC FROM WS-HEADING-LINE AFTER 2
+      *    WRITE PRINTREC FROM WS-HEADING-LINE
            MOVE 2 TO WS-LINE-CNT
            IF WS-PAGE-CNT > 1
                PERFORM START-OF-REGION
@@ -131,7 +136,7 @@
            MOVE WS-REGION-TOT TO WS-PRINT-REGION-TOTAL
            MOVE 0 TO WS-REGION-TOT
       *    c) Adjust the number of blank lines after the region. 
-           WRITE PRINTREC FROM WS-REGION-END-LINE AFTER 1
+           WRITE PRINTREC FROM WS-REGION-END-LINE AFTER 3
            ADD 1 TO WS-LINE-CNT
            .
        START-OF-REGION.
@@ -145,13 +150,18 @@
            END-SEARCH      
            MOVE in-region to ws-regn
       *    b) Adjust the number of blank lines before the region.
-           WRITE PRINTREC FROM WS-REGION-START-LINE AFTER 1
+           WRITE PRINTREC FROM WS-REGION-START-LINE AFTER 4
            ADD 1 TO WS-LINE-CNT
            .
        WRITE-DETAIL.
            MOVE IN-NAME TO WS-PRINT-NAME
            MOVE IN-SALES TO WS-PRINT-SALES
       *    e) Add IN-Sales to the region and grand totals
+           ADD IN-SALES TO WS-REGION-TOT
+           MOVE WS-REGION-TOT TO WS-PRINT-REGION-TOTAL
+           ADD IN-SALES TO WS-GRAND-TOT
+           MOVE WS-GRAND-TOT TO WS-PRINT-GRAND-TOTAL
            WRITE PRINTREC FROM WS-DETAIL AFTER 1
            ADD 1 TO WS-LINE-CNT
            .
+B
