@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Assignment7" default="cobolbuild" basedir="." xmlns:ac="antlib:net.sf.antcontrib">
+<project name="Assignment9" default="cobolbuild" basedir="." xmlns:ac="antlib:net.sf.antcontrib">
 	<taskdef resource="com/microfocus/ant/antlib.xml"/>
 	<!--  ***********************************  -->
 	<!--  * General property initialisation *  -->
@@ -9,7 +9,7 @@
 	<property name="pathVar.ECLIPSE_HOME" value="${env.ECLIPSE_HOME}"/>
 	<property name="pathVar.PARENT_LOC" value="${env.PARENT_LOC}"/>
 	<property environment="env"/>
-	<property name="mf.projectLocation.Assignment7" value="${basedir}"/>
+	<property name="mf.projectLocation.Assignment9" value="${basedir}"/>
 	<property name="mf.cfg" value="New_Configuration"/>
 	<property name="mf.cfgtarget" value="cfg.${mf.cfg}"/>
 	<property name="mf.forceCompile" value="true"/>
@@ -19,14 +19,14 @@
 	<property name="mf.connectionName" value=""/>
 	<property name="mf.projectName" value=""/>
 	<property name="mf.failOnError" value="false"/>
-	<property name="mf.cobolFailOnError" value="${mf.failOnError}"/>
+	<property name="mf.cobolFailOnError" value="true"/>
 	<property name="mf.cobollinkFailOnError" value="${mf.failOnError}"/>
 	<target name="printLocations">
 		<echo message="Project Location: &apos;pathVar.PROJECT_LOC&apos;=${pathVar.PROJECT_LOC}"/>
 		<echo message="Project Location: &apos;pathVar.WORKSPACE_LOC&apos;=${pathVar.WORKSPACE_LOC}"/>
 		<echo message="Project Location: &apos;pathVar.ECLIPSE_HOME&apos;=${pathVar.ECLIPSE_HOME}"/>
 		<echo message="Project Location: &apos;pathVar.PARENT_LOC&apos;=${pathVar.PARENT_LOC}"/>
-		<echo message="Project Location: &apos;project.Assignment7&apos;=${mf.projectLocation.Assignment7}"/>
+		<echo message="Project Location: &apos;project.Assignment9&apos;=${mf.projectLocation.Assignment9}"/>
 	</target>
 	<!--  ******************************  -->
 	<!--  * OS-specific initialisation *  -->
@@ -72,21 +72,18 @@
 	<mfdirlist id="cobol_directive_set_1">
 		<directive name="SOURCETABSTOP" id="sourcetabstop" value="4"/>
 		<directive name="COPYEXT" id="copyext" value="cpy,cbl"/>
-		<directive name="COLLECTION" id="collection" value="Assignment7"/>
+		<directive name="COLLECTION" id="collection" value="Assignment9"/>
 	</mfdirlist>
 	<!--  **********************  -->
 	<!--  * COBOL source files *  -->
 	<!--  **********************  -->
 	<!-- cobol_file_set_1 -->
 	<mffilelist type="srcfile" id="cobol_file_set_1" srcdir="${basedir}">
-		<file name="Exercise1.cbl"/>
-		<file name="Exercise2.cbl"/>
-		<file name="Table_Exercise1.cbl"/>
-		<file name="Exercise3.cbl"/>
+		<file name="ADSAMP.cbl"/>
 	</mffilelist>
 	<!-- COBOL copybook locations -->
 	<mffilelist id="cobol.copybook.locations">
-		<path type="copybook" name="${mf.projectLocation.Assignment7}"/>
+		<path type="copybook" name="${mf.projectLocation.Assignment9}"/>
 	</mffilelist>
 	<!--  ********************************  -->
 	<!--  * Source File Compile and Link *  -->
@@ -97,18 +94,13 @@
 			<mffilelist refid="cobol.copybook.locations"/>
 			<mfdirlist refid="cobol_directive_set_1"/>
 		</cobol>
-		<cobollink debug="true" destfile="${fileBaseName}" objectfile="${fileBaseName}${mf.objext}" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" objectdir="${basedir}/New_Configuration.bin" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">
-		</cobollink>
 	</target>
 	<!--  ****************  -->
 	<!--  * Object files *  -->
 	<!--  ****************  -->
 	<!-- Default -->
 	<mffilelist id="cobol.default.object.files.New Configuration" srcdir="${basedir}/New_Configuration.bin" type="objfile">
-		<file name="Exercise1${mf.objext}"/>
-		<file name="Exercise2${mf.objext}"/>
-		<file name="Table_Exercise1${mf.objext}"/>
-		<file name="Exercise3${mf.objext}"/>
+		<file name="ADSAMP${mf.objext}"/>
 	</mffilelist>
 	<!--  *************************  -->
 	<!--  * Configuration targets *  -->
@@ -162,16 +154,9 @@
 		</cobol>
 	</target>
 	<target name="cobol.link.cfg.New_Configuration">
-		<parallel threadCount="${mf.buildThreadCount}">
-			<cobollink debug="true" destfile="Exercise1" objectfile="Exercise1${mf.objext}" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" objectdir="${basedir}/New_Configuration.bin" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">
-			</cobollink>
-			<cobollink debug="true" destfile="Exercise2" objectfile="Exercise2${mf.objext}" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" objectdir="${basedir}/New_Configuration.bin" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">
-			</cobollink>
-			<cobollink debug="true" destfile="Table_Exercise1" objectfile="Table_Exercise1${mf.objext}" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" objectdir="${basedir}/New_Configuration.bin" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">
-			</cobollink>
-			<cobollink debug="true" destfile="Exercise3" objectfile="Exercise3${mf.objext}" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" objectdir="${basedir}/New_Configuration.bin" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">
-			</cobollink>
-		</parallel>
+		<cobollink debug="true" destfile="Assignment9" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">
+			<mffilelist refid="cobol.default.object.files.New Configuration"/>
+		</cobollink>
 	</target>
 	<target name="pre.build.cfg.New_Configuration">
 	</target>
@@ -180,6 +165,11 @@
 	<target name="clean.cfg.New_Configuration">
 		<cobolclean debug="true" destdir="${basedir}/New_Configuration.bin" desttype="exe">
 			<mffilelist refid="cobol_file_set_1"/>
+		</cobolclean>
+		<cobolclean destdir="${basedir}/New_Configuration.bin" desttype="exe">
+			<mffilelist>
+				<file name="Assignment9"/>
+			</mffilelist>
 		</cobolclean>
 	</target>
 	<!--  *******************  -->

@@ -7,13 +7,14 @@
 	<section name="com.microfocus.eclipse.editor.findreplace.FindReplaceDialog">
 		<item value="1" key="startcolumn"/>
 		<item value="false" key="isRegEx"/>
-		<item value="STORE #" key="selection"/>
+		<item value="WS-StoreNumber" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<item value="255" key="endcolumn"/>
 		<list key="findhistory">
+			<item value="WS-StoreNumber"/>
 			<item value="STORE #"/>
 			<item value="SalaryExpenses"/>
 		</list>

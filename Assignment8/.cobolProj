@@ -64,7 +64,6 @@
    </settings>
    <files xsi:type="projectFileStore">
       <filetype type="cobol" xsi:type="cobolFileContainer">
-         <file compile="true" path="Assignment8.cbl" xsi:type="cobolFile"/>
          <file compile="true" path="Assignment8a.cbl" xsi:type="cobolFile"/>
          <file compile="true" path="Assignment8b.cbl" xsi:type="cobolFile"/>
       </filetype>

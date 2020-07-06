@@ -1,44 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cobolProject" name="Assignment7" uuid="2cc1ef9d-64f9-4450-a885-096a509c319a" version="5.0">
+<project xsi:schemaLocation="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cobolProject" name="Assignment9" uuid="86d6d616-da24-4a6a-ba90-33cd9cc0a66e" version="5.0">
    <settings xsi:type="projectSettingsContainer">
       <copybook-paths xsi:type="copybookPathsSettings">
-         <path enabled="true" name="/Assignment7" type="mfpath"/>
+         <path enabled="true" name="/Assignment9" type="mfpath"/>
       </copybook-paths>
       <build-precedence-paths xsi:type="buildPrecedenceSettings">
-         <path enabled="true" name="/Assignment7" type="mfpath"/>
+         <path enabled="true" name="/Assignment9" type="mfpath"/>
       </build-precedence-paths>
       <configurations default="New Configuration" linkedWith="2017" xsi:type="buildConfigurationsContainer">
-         <configuration description="New Configuration" type="all_exe" xsi:type="cobolBuildConfiguration">
-            <targetdir name="Assignment7"/>
-            <application_configuration xsi:type="runtimeConfigurationSettings">
-               <cobol_switches xsi:type="projectCobolSwitches"/>
-               <rts_switches xsi:type="projectRtsSwitches">
-                  <rts_switch name="A" value="off" index="1"/>
-                  <rts_switch name="D" value="off" index="0"/>
-                  <rts_switch name="F" value="on" index="0"/>
-                  <rts_switch name="I" value="off" index="2"/>
-                  <rts_switch name="O" value="on" index="0"/>
-                  <rts_switch name="S" value="off" index="5"/>
-               </rts_switches>
-               <envScriptParameters></envScriptParameters>
-               <envScriptPath></envScriptPath>
-               <inheritBuildEnv>false</inheritBuildEnv>
-               <tunables>
-                  <tunable name="screen_lines" value="25" index="0"/>
-                  <tunable name="screen_cols" value="80" index="0"/>
-                  <tunable name="default_cancel_mode" value="2" index="0"/>
-               </tunables>
-            </application_configuration>
+         <configuration description="New Configuration" type="single_exe" xsi:type="cobolBuildConfiguration">
+            <targetdir name="Assignment9"/>
             <link_settings xsi:type="linkSettings">
                <options>
                   <option id="platform" name="linkSettings" value="Windows"/>
                   <option id="threadedRts" name="linkSettings" value="threadedRts"/>
-                  <option id="targetName" name="linkSettings" value="Assignment7"/>
-                  <option id="type" name="linkSettings" value="all_exe"/>
                   <option id="applicationType" name="linkSettings" value="console"/>
                   <option id="runtimeModel" name="linkSettings" value="shared"/>
                   <option id="bitism" name="linkSettings" value="32 bit"/>
                   <option id="outputDirectory" name="linkSettings" value="New Configuration.bin"/>
+                  <option id="type" name="linkSettings" value="single_exe"/>
+                  <option id="targetName" name="linkSettings" value="Assignment9"/>
                </options>
                <additional_files/>
             </link_settings>
@@ -64,14 +45,9 @@
    </settings>
    <files xsi:type="projectFileStore">
       <filetype type="cobol" xsi:type="cobolFileContainer">
-         <file compile="true" path="Exercise1.cbl" xsi:type="cobolFile"/>
-         <file compile="true" path="Exercise2.cbl" xsi:type="cobolFile"/>
-         <file compile="true" path="Table_Exercise1.cbl" xsi:type="cobolFile"/>
-         <file compile="true" path="Exercise3.cbl" xsi:type="cobolFile"/>
+         <file compile="true" path="ADSAMP.cbl" xsi:type="cobolFile"/>
       </filetype>
       <filetype type="cobol.copybook" xsi:type="cobolFileContainer"/>
-      <folders xsi:type="cobolFolderContainer">
-         <folder compile="true" path="New_Configuration.bin" xsi:type="cobolFolder"/>
-      </folders>
+      <folders xsi:type="cobolFolderContainer"/>
    </files>
 </project>

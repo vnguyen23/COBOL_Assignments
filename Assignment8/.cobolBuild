@@ -79,7 +79,6 @@
 	<!--  **********************  -->
 	<!-- cobol_file_set_1 -->
 	<mffilelist type="srcfile" id="cobol_file_set_1" srcdir="${basedir}">
-		<file name="Assignment8.cbl"/>
 		<file name="Assignment8a.cbl"/>
 		<file name="Assignment8b.cbl"/>
 	</mffilelist>
@@ -104,7 +103,6 @@
 	<!--  ****************  -->
 	<!-- Default -->
 	<mffilelist id="cobol.default.object.files.New Configuration" srcdir="${basedir}/New_Configuration.bin" type="objfile">
-		<file name="Assignment8${mf.objext}"/>
 		<file name="Assignment8a${mf.objext}"/>
 		<file name="Assignment8b${mf.objext}"/>
 	</mffilelist>
@@ -161,8 +159,6 @@
 	</target>
 	<target name="cobol.link.cfg.New_Configuration">
 		<parallel threadCount="${mf.buildThreadCount}">
-			<cobollink debug="true" destfile="Assignment8" objectfile="Assignment8${mf.objext}" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" objectdir="${basedir}/New_Configuration.bin" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">
-			</cobollink>
 			<cobollink debug="true" destfile="Assignment8a" objectfile="Assignment8a${mf.objext}" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" objectdir="${basedir}/New_Configuration.bin" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">
 			</cobollink>
 			<cobollink debug="true" destfile="Assignment8b" objectfile="Assignment8b${mf.objext}" entrypoint="" sharedRts="true" destdir="${basedir}/New_Configuration.bin" is64bit="false" objectdir="${basedir}/New_Configuration.bin" failonerror="${mf.cobollinkFailOnError}" desttype="exe" threadedRts="true">

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="com.microfocus.eclipse.project.ui.propertypages.BuildPathPropertyPage">
+		<item value="0" key="pageIndex"/>
+	</section>
 	<section name="com.microfocus.eclipse.project.internal.ui.search.MicroFocusSearchPage">
 	</section>
 </section>

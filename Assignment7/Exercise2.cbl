@@ -13,10 +13,11 @@
        procedure division.
       *INSPECT FIELD-1 REPLACING FIRST "B" BY "Z"
       *INSPECT FIELD-1 REPLACING ALL "B" BY "C"
-       display "Test1"
+      *display "Test1"
        STRING FIELD-2 DELIMITED BY SIZE FIELD-3 DELIMITED BY SPACE      
        INTO FIELD-4
       *ON OVERFLOW DISPLAY "OVERFLOW!"
+       display "FIELD-1: " FIELD-1
        display "FIELD-2: " FIELD-2
        display "FIELD-3: " FIELD-3
        display "FIELD-4: " FIELD-4

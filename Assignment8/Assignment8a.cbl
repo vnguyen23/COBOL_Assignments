@@ -37,6 +37,9 @@
        01  WS-LINE-CNT     PIC 99 VALUE 99.
        01  WS-PAGE-CNT     PIC 99 VALUE 0.
        01  WS-RECORD-CNT   PIC 9(4) VALUE 0.
+       01  WS-SPACING-HEADING    PIC 9 VALUE 2.
+       01  WS-SPACING-REG-START  PIC 9 VALUE 4.
+       01  WS-SPACING-REG-END    PIC 9 VALUE 3.
        01  WS-TOTALS         COMP VALUE LOW-VALUES.
            03  WS-REGION-TOT     PIC 9(8)V99.
            03  WS-GRAND-TOT      PIC 9(10)V99.
@@ -121,13 +124,14 @@
            .
        WRITE-HEADINGS.
            WRITE PRINTREC FROM WS-SPACES AFTER PAGE
-      *    WRITE PRINTREC FROM WS-SPACES
            ADD 1 TO WS-PAGE-CNT
            MOVE WS-PAGE-CNT TO WS-PRINT-PAGE-CNT
            
-           WRITE PRINTREC FROM WS-HEADING-LINE AFTER 2
-      *    WRITE PRINTREC FROM WS-HEADING-LINE
-           MOVE 2 TO WS-LINE-CNT
+      *    WRITE PRINTREC FROM WS-HEADING-LINE AFTER 2
+           WRITE PRINTREC FROM WS-HEADING-LINE AFTER WS-SPACING-HEADING
+      *    MOVE 2 TO WS-LINE-CNT    
+           MOVE WS-SPACING-HEADING TO WS-LINE-CNT
+   
            IF WS-PAGE-CNT > 1
                PERFORM START-OF-REGION
            END-IF
@@ -136,8 +140,11 @@
            MOVE WS-REGION-TOT TO WS-PRINT-REGION-TOTAL
            MOVE 0 TO WS-REGION-TOT
       *    c) Adjust the number of blank lines after the region. 
-           WRITE PRINTREC FROM WS-REGION-END-LINE AFTER 3
-           ADD 1 TO WS-LINE-CNT
+      *    WRITE PRINTREC FROM WS-REGION-END-LINE AFTER 3
+           WRITE PRINTREC FROM WS-REGION-END-LINE AFTER 
+      *    MOVE 1 TO WS-LINE-CNT    
+           WS-SPACING-REG-END
+           ADD WS-SPACING-REG-END TO WS-LINE-CNT
            .
        START-OF-REGION.
            SEARCH ALL WS-REG
@@ -150,8 +157,11 @@
            END-SEARCH      
            MOVE in-region to ws-regn
       *    b) Adjust the number of blank lines before the region.
-           WRITE PRINTREC FROM WS-REGION-START-LINE AFTER 4
-           ADD 1 TO WS-LINE-CNT
+      *    WRITE PRINTREC FROM WS-REGION-START-LINE AFTER 4
+           WRITE PRINTREC FROM WS-REGION-START-LINE AFTER 
+           WS-SPACING-REG-START
+      *    MOVE 1 TO WS-LINE-CNT    
+           ADD WS-SPACING-REG-START TO WS-LINE-CNT
            .
        WRITE-DETAIL.
            MOVE IN-NAME TO WS-PRINT-NAME
@@ -164,4 +174,3 @@
            WRITE PRINTREC FROM WS-DETAIL AFTER 1
            ADD 1 TO WS-LINE-CNT
            .
-B

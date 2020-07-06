@@ -17,25 +17,33 @@
 
        procedure division.
       *SUBTRACT WS-NUM1 WS-NUM2 FROM WS-NUM3 WS-NUM4.
-       ADD WS-NUM1 WS-NUM2 TO WS-NUM3 GIVING WS-NUM4.
-       
+      *display "SUBTRACTION:"
+      *ADD WS-NUM1 WS-NUM2 TO WS-NUM3 GIVING WS-NUM4.
+      *display "ADDITION:"
+      *SUBTRACT WS-NUMA WS-NUMB WS-NUMC FROM WS-NUMD GIVING WS-NUME.
+      *display "SUBTRACTION GIVING:"
+      *MULTIPLY WS-NUMA BY WS-NUMB WS-NUMC.
+      *display "MULTIPLICATION:"
+      *MULTIPLY WS-NUMA BY WS-NUMB GIVING WS-NUMC.
+      *display "MULTIPLICATION GIVING:"
+      *DIVIDE WS-NUMD BY 7 GIVING WS-NUMA REMAINDER WS-NUMB.
+      *display "DIVISION:"
+       COMPUTE WS-NUMC = (WS-NUM1 * WS-NUM2) - (WS-NUMA / WS-NUMB) 
+       + WS-NUM3
+       display "COMPUTION:"
        display "WS-NUM1: " WS-NUM1
        display "WS-NUM2: " WS-NUM2
        display "WS-NUM3: " WS-NUM3
        display "WS-NUM4: " WS-NUM4
        display "------------------------"
        
-      *SUBTRACT WS-NUMA WS-NUMB WS-NUMC FROM WS-NUMD GIVING WS-NUME.
-      *MULTIPLY WS-NUMA BY WS-NUMB WS-NUMC.
-      *MULTIPLY WS-NUMA BY WS-NUMB GIVING WS-NUMC.
-      *DIVIDE WS-NUMD BY 7 GIVING WS-NUMA REMAINDER WS-NUMB.
-       COMPUTE WS-NUMC = (WS-NUM1 * WS-NUM2) - (WS-NUMA / WS-NUMB) 
-       + WS-NUM3                                                        
        display "WS-NUMA: " WS-NUMA
        display "WS-NUMB: " WS-NUMB
        display "WS-NUMC: " WS-NUMC
        display "WS-NUMD: " WS-NUMD
        display "WS-NUME: " WS-NUME
-           goback.
+       display "------------------------"
+       
+                  goback.
 
        end program Exercise1.
